@@ -18,6 +18,11 @@ app.post('/users', (req,res) =>{
     res.status(201).json(user)
 })
 
+app.get('/users',(req,res) =>{
+    res.json(users)
+})
+
+
 const port= 5000;
 
 app.listen(port, ()=>{
