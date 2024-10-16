@@ -35,7 +35,7 @@ app.get('/user/:id', (req, res)=>{
     }
 })
 
-app.put('/users/:id', (req, res) =>{
+app.put('/user/:id', (req, res) =>{
     const id= parseInt(req.params.id)
     const updateUser= req.body
     const userIndex= users.findIndex((u)=> u.id === id)
@@ -47,6 +47,7 @@ app.put('/users/:id', (req, res) =>{
         res.json(users[userIndex])
     }  
 })
+
 
 const port= 5000;
 
