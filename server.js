@@ -48,6 +48,17 @@ app.put('/user/:id', (req, res) =>{
     }  
 })
 
+app.delete('/user/:id', (req,res)=>{
+    const id= parseInt(req.params.id)
+    const userIndex= users.findIndex((u)=> u.id === id)
+    if(userIndex == -1){
+        res.status(404).json({message: 'User not found'})
+    }
+    else{
+        users.splice(userIndex,1)
+        res.json({message: 'User deleted!'})
+    }
+})
 
 const port= 5000;
 
