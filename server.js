@@ -35,6 +35,19 @@ app.get('/user/:id', (req, res)=>{
     }
 })
 
+app.put('/users/:id', (req, res) =>{
+    const id= parseInt(req.params.id)
+    const updateUser= req.body
+    const userIndex= users.findIndex((u)=> u.id === id)
+    if(userIndex == -1){
+        res.status(404).json({message: 'User not found!'})
+    }
+    else{
+        users[userIndex]={...users[userIndex], ...updateUser}
+        res.json(users[userIndex])
+    }  
+})
+
 const port= 5000;
 
 app.listen(port, ()=>{
